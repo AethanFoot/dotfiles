@@ -1,5 +1,0 @@
-2020/07/15-17:42:14.892 2a0a Reusing MANIFEST /home/aethan/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_nordpass.com_0.indexeddb.leveldb/MANIFEST-000001
-2020/07/15-17:43:19.111 13b4 Level-0 table #5: started
-2020/07/15-17:43:19.114 13b4 Level-0 table #5: 6100 bytes OK
-2020/07/15-17:43:19.117 13b4 Delete type=0 #3
-2020/07/15-17:43:19.117 13b4 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

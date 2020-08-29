@@ -1,9 +1,0 @@
-{
-    "telemetry.enableCrashReporter": false,
-    "telemetry.enableTelemetry": false,
-    "terminal.external.linuxExec": "kitty",
-    "editor.formatOnType": true,
-    "workbench.colorTheme": "Dracula",
-    "editor.fontFamily": "SauceCodePro NF",
-    "editor.fontLigatures": null
-}
