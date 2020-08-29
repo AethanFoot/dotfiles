@@ -1,0 +1,5 @@
+2020/07/17-15:24:04.242 27cc Reusing MANIFEST /home/aethan/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_www.cnet.com_0.indexeddb.leveldb/MANIFEST-000001
+2020/07/17-15:27:50.150 27fc Level-0 table #5: started
+2020/07/17-15:27:50.155 27fc Level-0 table #5: 1776 bytes OK
+2020/07/17-15:27:50.158 27fc Delete type=0 #3
+2020/07/17-15:27:50.158 27fc Manual compaction at level-0 from (begin) .. (end); will stop at (end)

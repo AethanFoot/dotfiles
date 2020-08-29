@@ -1,0 +1,6 @@
+system:
+  env:
+    LD_PRELOAD: /usr/lib/libgamemodeauto.so
+  game_path: /mnt/sdb/Games
+  gamemode: true
+  terminal_app: /usr/bin/kitty

@@ -1,0 +1,61 @@
+03/08/20 (13:13:36) | ERROR: Data collection thread failed with exception: not sure how to interpret line '   8       0 sda 39772 8790 17646155 60441 14708 12829 24384568 99562 0 57380 160270 0 0 0 0 220 267\n'
+Traceback (most recent call last):
+  File "/usr/local/bin/bpytop", line 2315, in _runner
+    collector._collect()
+  File "/usr/local/bin/bpytop", line 2578, in _collect
+    io_counters = psutil.disk_io_counters(perdisk=True if SYSTEM == "Linux" else False, nowrap=True)
+  File "/home/aethan/anaconda3/lib/python3.7/site-packages/psutil/__init__.py", line 2168, in disk_io_counters
+    rawdict = _psplatform.disk_io_counters(**kwargs)
+  File "/home/aethan/anaconda3/lib/python3.7/site-packages/psutil/_pslinux.py", line 1125, in disk_io_counters
+    for entry in gen:
+  File "/home/aethan/anaconda3/lib/python3.7/site-packages/psutil/_pslinux.py", line 1098, in read_procfs
+    raise ValueError("not sure how to interpret line %r" % line)
+ValueError: not sure how to interpret line '   8       0 sda 39772 8790 17646155 60441 14708 12829 24384568 99562 0 57380 160270 0 0 0 0 220 267\n'
+03/08/20 (13:13:36) | WARNING: Exiting with errorcode (1). Runtime 0:00:03 
+
+03/08/20 (13:13:45) | ERROR: Data collection thread failed with exception: not sure how to interpret line '   8       0 sda 39772 8790 17646155 60441 14708 12829 24384568 99562 0 57380 160270 0 0 0 0 220 267\n'
+Traceback (most recent call last):
+  File "/usr/local/bin/bpytop", line 2315, in _runner
+    collector._collect()
+  File "/usr/local/bin/bpytop", line 2578, in _collect
+    io_counters = psutil.disk_io_counters(perdisk=True if SYSTEM == "Linux" else False, nowrap=True)
+  File "/home/aethan/anaconda3/lib/python3.7/site-packages/psutil/__init__.py", line 2168, in disk_io_counters
+    rawdict = _psplatform.disk_io_counters(**kwargs)
+  File "/home/aethan/anaconda3/lib/python3.7/site-packages/psutil/_pslinux.py", line 1125, in disk_io_counters
+    for entry in gen:
+  File "/home/aethan/anaconda3/lib/python3.7/site-packages/psutil/_pslinux.py", line 1098, in read_procfs
+    raise ValueError("not sure how to interpret line %r" % line)
+ValueError: not sure how to interpret line '   8       0 sda 39772 8790 17646155 60441 14708 12829 24384568 99562 0 57380 160270 0 0 0 0 220 267\n'
+03/08/20 (13:13:45) | WARNING: Exiting with errorcode (1). Runtime 0:00:03 
+
+03/08/20 (13:17:53) | ERROR: Data collection thread failed with exception: not sure how to interpret line '   8       0 sda 39772 8790 17646155 60441 14708 12829 24384568 99562 0 57380 160270 0 0 0 0 220 267\n'
+Traceback (most recent call last):
+  File "/usr/local/bin/bpytop", line 2315, in _runner
+    collector._collect()
+  File "/usr/local/bin/bpytop", line 2578, in _collect
+    io_counters = psutil.disk_io_counters(perdisk=True if SYSTEM == "Linux" else False, nowrap=True)
+  File "/home/aethan/anaconda3/lib/python3.7/site-packages/psutil/__init__.py", line 2168, in disk_io_counters
+    rawdict = _psplatform.disk_io_counters(**kwargs)
+  File "/home/aethan/anaconda3/lib/python3.7/site-packages/psutil/_pslinux.py", line 1125, in disk_io_counters
+    for entry in gen:
+  File "/home/aethan/anaconda3/lib/python3.7/site-packages/psutil/_pslinux.py", line 1098, in read_procfs
+    raise ValueError("not sure how to interpret line %r" % line)
+ValueError: not sure how to interpret line '   8       0 sda 39772 8790 17646155 60441 14708 12829 24384568 99562 0 57380 160270 0 0 0 0 220 267\n'
+03/08/20 (13:17:53) | WARNING: Exiting with errorcode (1). Runtime 0:00:03 
+
+03/08/20 (13:19:25) | ERROR: Data collection thread failed with exception: not sure how to interpret line '   8       0 sda 39772 8790 17646155 60441 14708 12829 24384568 99562 0 57380 160270 0 0 0 0 220 267\n'
+Traceback (most recent call last):
+  File "/usr/local/bin/bpytop", line 2315, in _runner
+    collector._collect()
+  File "/usr/local/bin/bpytop", line 2578, in _collect
+    io_counters = psutil.disk_io_counters(perdisk=True if SYSTEM == "Linux" else False, nowrap=True)
+  File "/home/aethan/anaconda3/lib/python3.7/site-packages/psutil/__init__.py", line 2168, in disk_io_counters
+    rawdict = _psplatform.disk_io_counters(**kwargs)
+  File "/home/aethan/anaconda3/lib/python3.7/site-packages/psutil/_pslinux.py", line 1125, in disk_io_counters
+    for entry in gen:
+  File "/home/aethan/anaconda3/lib/python3.7/site-packages/psutil/_pslinux.py", line 1098, in read_procfs
+    raise ValueError("not sure how to interpret line %r" % line)
+ValueError: not sure how to interpret line '   8       0 sda 39772 8790 17646155 60441 14708 12829 24384568 99562 0 57380 160270 0 0 0 0 220 267\n'
+03/08/20 (13:19:26) | WARNING: Exiting with errorcode (1). Runtime 0:00:03 
+
+23/08/20 (15:51:56) | WARNING: No theme named "+dracula" found!

@@ -1,0 +1,15 @@
+2020/08/25-16:19:42.139 11e0a Reusing MANIFEST /home/aethan/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_www.protondb.com_0.indexeddb.leveldb/MANIFEST-000001
+2020/08/25-16:19:42.140 11e0a Recovering log #75
+2020/08/25-16:19:42.140 11e0a Reusing old log /home/aethan/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_www.protondb.com_0.indexeddb.leveldb/000075.log 
+2020/08/25-16:20:07.717 927c Level-0 table #80: started
+2020/08/25-16:20:07.723 927c Level-0 table #80: 517 bytes OK
+2020/08/25-16:20:07.736 927c Delete type=0 #75
+2020/08/25-16:20:07.736 927c Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2020/08/25-16:20:07.736 927c Manual compaction at level-1 from (begin) .. (end); will stop at '\x00\x01\x01\x02\x01\x0e\x00_\x00_\x00s\x00a\x00k\x003\x001\x003\x004\x001\x003\x003\x006\x009' @ 379 : 1
+2020/08/25-16:20:07.736 927c Compacting 1@1 + 1@2 files
+2020/08/25-16:20:07.746 927c Generated table #81@1: 18 keys, 550 bytes
+2020/08/25-16:20:07.746 927c Compacted 1@1 + 1@2 files => 550 bytes
+2020/08/25-16:20:07.755 927c compacted to: files[ 0 0 1 0 0 0 0 ]
+2020/08/25-16:20:07.755 927c Delete type=2 #80
+2020/08/25-16:20:07.755 927c Delete type=2 #77
+2020/08/25-16:20:07.755 927c Manual compaction at level-1 from '\x00\x01\x01\x02\x01\x0e\x00_\x00_\x00s\x00a\x00k\x003\x001\x003\x004\x001\x003\x003\x006\x009' @ 379 : 1 .. (end); will stop at (end)

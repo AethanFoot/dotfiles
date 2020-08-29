@@ -1,0 +1,5 @@
+2020/07/10-16:16:48.539 3778 Reusing MANIFEST /home/aethan/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_www.facebook.com_0.indexeddb.leveldb/MANIFEST-000001
+2020/07/10-16:17:20.557 378f Level-0 table #5: started
+2020/07/10-16:17:20.562 378f Level-0 table #5: 1234 bytes OK
+2020/07/10-16:17:20.565 378f Delete type=0 #3
+2020/07/10-16:17:20.565 378f Manual compaction at level-0 from (begin) .. (end); will stop at (end)

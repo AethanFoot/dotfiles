@@ -1,0 +1,49 @@
+2020/08/29-11:08:41.289 a41 Reusing MANIFEST /home/aethan/.config/BraveSoftware/Brave-Browser/Default/Local Storage/leveldb/MANIFEST-000001
+2020/08/29-11:08:41.289 a41 Recovering log #1083
+2020/08/29-11:08:41.289 a41 Reusing old log /home/aethan/.config/BraveSoftware/Brave-Browser/Default/Local Storage/leveldb/001083.log 
+2020/08/29-11:42:53.683 278b Level-0 table #1087: started
+2020/08/29-11:42:53.692 278b Level-0 table #1087: 20900 bytes OK
+2020/08/29-11:42:53.701 278b Delete type=0 #1083
+2020/08/29-11:59:53.328 278b Level-0 table #1089: started
+2020/08/29-11:59:53.339 278b Level-0 table #1089: 114125 bytes OK
+2020/08/29-11:59:53.348 278b Delete type=0 #1086
+2020/08/29-12:45:43.538 278b Level-0 table #1091: started
+2020/08/29-12:45:43.550 278b Level-0 table #1091: 96235 bytes OK
+2020/08/29-12:45:43.559 278b Delete type=0 #1088
+2020/08/29-12:45:43.559 278b Compacting 4@0 + 2@1 files
+2020/08/29-12:45:43.589 278b Generated table #1092@0: 1096 keys, 2140254 bytes
+2020/08/29-12:45:43.601 278b Generated table #1093@0: 1734 keys, 511874 bytes
+2020/08/29-12:45:43.601 278b Compacted 4@0 + 2@1 files => 2652128 bytes
+2020/08/29-12:45:43.610 278b compacted to: files[ 0 2 1 0 0 0 0 ]
+2020/08/29-12:45:43.610 278b Delete type=2 #1082
+2020/08/29-12:45:43.610 278b Delete type=2 #1087
+2020/08/29-12:45:43.610 278b Delete type=2 #1084
+2020/08/29-12:45:43.610 278b Delete type=2 #1081
+2020/08/29-12:45:43.610 278b Delete type=2 #1091
+2020/08/29-12:45:43.610 278b Delete type=2 #1089
+2020/08/29-12:46:43.538 278b Level-0 table #1095: started
+2020/08/29-12:46:43.548 278b Level-0 table #1095: 84609 bytes OK
+2020/08/29-12:46:43.556 278b Delete type=0 #1090
+2020/08/29-12:51:22.235 278b Level-0 table #1097: started
+2020/08/29-12:51:22.242 278b Level-0 table #1097: 85262 bytes OK
+2020/08/29-12:51:22.251 278b Delete type=0 #1094
+2020/08/29-12:51:43.538 278b Level-0 table #1099: started
+2020/08/29-12:51:43.548 278b Level-0 table #1099: 83977 bytes OK
+2020/08/29-12:51:43.557 278b Delete type=0 #1096
+2020/08/29-12:55:43.538 278b Level-0 table #1101: started
+2020/08/29-12:55:43.547 278b Level-0 table #1101: 85141 bytes OK
+2020/08/29-12:55:43.556 278b Delete type=0 #1098
+2020/08/29-12:55:43.556 278b Compacting 4@0 + 2@1 files
+2020/08/29-12:55:43.588 278b Generated table #1102@0: 1096 keys, 2140254 bytes
+2020/08/29-12:55:43.612 278b Generated table #1103@0: 1734 keys, 511879 bytes
+2020/08/29-12:55:43.612 278b Compacted 4@0 + 2@1 files => 2652133 bytes
+2020/08/29-12:55:43.621 278b compacted to: files[ 0 2 1 0 0 0 0 ]
+2020/08/29-12:55:43.621 278b Delete type=2 #1092
+2020/08/29-12:55:43.621 278b Delete type=2 #1099
+2020/08/29-12:55:43.621 278b Delete type=2 #1095
+2020/08/29-12:55:43.621 278b Delete type=2 #1093
+2020/08/29-12:55:43.621 278b Delete type=2 #1101
+2020/08/29-12:55:43.621 278b Delete type=2 #1097
+2020/08/29-13:50:53.328 278b Level-0 table #1105: started
+2020/08/29-13:50:53.337 278b Level-0 table #1105: 19154 bytes OK
+2020/08/29-13:50:53.346 278b Delete type=0 #1100

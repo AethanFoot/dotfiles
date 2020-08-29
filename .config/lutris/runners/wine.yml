@@ -1,0 +1,5 @@
+system:
+  terminal_app: /usr/bin/kitty
+wine:
+  esync: true
+  version: Proton-5.9-GE-2-MF

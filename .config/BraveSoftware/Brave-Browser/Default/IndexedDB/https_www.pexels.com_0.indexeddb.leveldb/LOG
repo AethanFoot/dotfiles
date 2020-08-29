@@ -1,0 +1,5 @@
+2020/07/04-11:53:21.165 4d6c Reusing MANIFEST /home/aethan/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_www.pexels.com_0.indexeddb.leveldb/MANIFEST-000001
+2020/07/04-11:53:30.910 4dea Level-0 table #5: started
+2020/07/04-11:53:30.912 4dea Level-0 table #5: 2959 bytes OK
+2020/07/04-11:53:30.916 4dea Delete type=0 #3
+2020/07/04-11:53:30.916 4dea Manual compaction at level-0 from (begin) .. (end); will stop at (end)

@@ -1,0 +1,15 @@
+2020/08/23-20:16:46.629 197b5 Reusing MANIFEST /home/aethan/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_lbry.tv_0.indexeddb.leveldb/MANIFEST-000001
+2020/08/23-20:16:46.629 197b5 Recovering log #87
+2020/08/23-20:16:46.629 197b5 Reusing old log /home/aethan/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_lbry.tv_0.indexeddb.leveldb/000087.log 
+2020/08/23-20:24:06.693 1a4a Level-0 table #92: started
+2020/08/23-20:24:06.703 1a4a Level-0 table #92: 103534 bytes OK
+2020/08/23-20:24:06.711 1a4a Delete type=0 #87
+2020/08/23-20:24:06.712 1a4a Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2020/08/23-20:24:06.712 1a4a Manual compaction at level-1 from (begin) .. (end); will stop at '\x00\x01\x01\x02\x01\x0a\x00p\x00e\x00r\x00s\x00i\x00s\x00t\x00:\x00v\x000' @ 2420 : 1
+2020/08/23-20:24:06.712 1a4a Compacting 1@1 + 1@2 files
+2020/08/23-20:24:06.721 1a4a Generated table #93@1: 29 keys, 5106 bytes
+2020/08/23-20:24:06.721 1a4a Compacted 1@1 + 1@2 files => 5106 bytes
+2020/08/23-20:24:06.732 1a4a compacted to: files[ 0 0 1 0 0 0 0 ]
+2020/08/23-20:24:06.732 1a4a Delete type=2 #89
+2020/08/23-20:24:06.732 1a4a Delete type=2 #92
+2020/08/23-20:24:06.733 1a4a Manual compaction at level-1 from '\x00\x01\x01\x02\x01\x0a\x00p\x00e\x00r\x00s\x00i\x00s\x00t\x00:\x00v\x000' @ 2420 : 1 .. (end); will stop at (end)

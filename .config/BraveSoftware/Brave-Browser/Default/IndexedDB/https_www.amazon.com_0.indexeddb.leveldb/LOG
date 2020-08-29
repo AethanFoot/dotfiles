@@ -1,0 +1,15 @@
+2020/08/28-10:16:25.283 700 Reusing MANIFEST /home/aethan/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_www.amazon.com_0.indexeddb.leveldb/MANIFEST-000001
+2020/08/28-10:16:25.283 700 Recovering log #15
+2020/08/28-10:16:25.283 700 Reusing old log /home/aethan/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_www.amazon.com_0.indexeddb.leveldb/000015.log 
+2020/08/28-10:16:29.926 a48 Level-0 table #20: started
+2020/08/28-10:16:29.937 a48 Level-0 table #20: 791 bytes OK
+2020/08/28-10:16:29.946 a48 Delete type=0 #15
+2020/08/28-10:16:29.946 a48 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2020/08/28-10:16:29.946 a48 Manual compaction at level-1 from (begin) .. (end); will stop at '\x00\x01\x01\x1f\x03\x00@D\x18ICwB\x00\x01\x14\x00H\x00B\x00D\x00V\x00F\x002\x006\x00W\x00D\x00K\x00V\x00C\x00B\x001\x003\x00T\x00X\x00N\x000\x006' @ 217 : 1
+2020/08/28-10:16:29.946 a48 Compacting 1@1 + 1@2 files
+2020/08/28-10:16:29.953 a48 Generated table #21@1: 44 keys, 1081 bytes
+2020/08/28-10:16:29.953 a48 Compacted 1@1 + 1@2 files => 1081 bytes
+2020/08/28-10:16:29.962 a48 compacted to: files[ 0 0 1 0 0 0 0 ]
+2020/08/28-10:16:29.962 a48 Delete type=2 #20
+2020/08/28-10:16:29.962 a48 Delete type=2 #17
+2020/08/28-10:16:29.962 a48 Manual compaction at level-1 from '\x00\x01\x01\x1f\x03\x00@D\x18ICwB\x00\x01\x14\x00H\x00B\x00D\x00V\x00F\x002\x006\x00W\x00D\x00K\x00V\x00C\x00B\x001\x003\x00T\x00X\x00N\x000\x006' @ 217 : 1 .. (end); will stop at (end)

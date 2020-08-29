@@ -1,0 +1,110 @@
+{
+   "checksum": "f5784270c3889ebecab79489db9c10a0",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "date_added": "13236266374000000",
+            "guid": "c9fa5e44-3162-40de-9440-98027b7780e6",
+            "id": "5",
+            "name": "YouTube",
+            "type": "url",
+            "url": "https://www.youtube.com/"
+         }, {
+            "date_added": "13236266441000000",
+            "guid": "81e5ac62-5dd4-4612-8232-3fc601733bba",
+            "id": "6",
+            "name": "Facebook",
+            "type": "url",
+            "url": "https://www.facebook.com/"
+         }, {
+            "date_added": "13236272883000000",
+            "guid": "90f561b5-3b7e-4e71-86f5-d67619483e5d",
+            "id": "7",
+            "name": "Twitch",
+            "type": "url",
+            "url": "https://www.twitch.tv/directory/following"
+         }, {
+            "date_added": "13236957982000000",
+            "guid": "da1e2870-5bd2-49be-97a5-7fe6c7a4c418",
+            "id": "8",
+            "name": "Rooster Teeth",
+            "type": "url",
+            "url": "https://roosterteeth.com/"
+         }, {
+            "date_added": "13236641170000000",
+            "guid": "4f8867a8-d5ac-43bb-ac01-ceae4aec1695",
+            "id": "9",
+            "name": "lbry.tv",
+            "type": "url",
+            "url": "https://lbry.tv/"
+         }, {
+            "date_added": "13236266652000000",
+            "guid": "55652ea6-fa4e-4d87-b94a-418ac15835db",
+            "id": "10",
+            "name": "HLTV.org",
+            "type": "url",
+            "url": "https://www.hltv.org/"
+         }, {
+            "date_added": "13236540914000000",
+            "guid": "2d84fe1e-36c9-4566-9f70-d683123cb71a",
+            "id": "11",
+            "name": "PCPartPicker",
+            "type": "url",
+            "url": "https://uk.pcpartpicker.com/list/"
+         }, {
+            "date_added": "13236615517000000",
+            "guid": "602dc52a-cb42-4134-aecd-ebf372310cea",
+            "id": "12",
+            "name": "GitHub",
+            "type": "url",
+            "url": "https://github.com/"
+         }, {
+            "date_added": "13236869078000000",
+            "guid": "af11adcf-90f4-4397-b0c8-471cac33f0df",
+            "id": "13",
+            "name": "Amazon.co.uk",
+            "type": "url",
+            "url": "https://www.amazon.co.uk/"
+         }, {
+            "date_added": "13237563598000000",
+            "guid": "ac9497b8-af68-4aaf-991f-df595ad44c1c",
+            "id": "14",
+            "name": "Aethan Foot",
+            "type": "url",
+            "url": "https://outlook.live.com/mail/0/inbox"
+         }, {
+            "date_added": "13237564255000000",
+            "guid": "e643bb76-578c-4d1e-8eca-3c87289c6c90",
+            "id": "15",
+            "name": "ajf75",
+            "type": "url",
+            "url": "https://outlook.office.com/mail/inbox"
+         } ],
+         "date_added": "13237637937263272",
+         "date_modified": "13242909043526420",
+         "guid": "00000000-0000-4000-a000-000000000002",
+         "id": "1",
+         "name": "Bookmarks bar",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13237637937263274",
+         "date_modified": "0",
+         "guid": "00000000-0000-4000-a000-000000000003",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13237637937263277",
+         "date_modified": "0",
+         "guid": "00000000-0000-4000-a000-000000000004",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}

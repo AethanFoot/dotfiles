@@ -1,0 +1,5 @@
+2020/07/29-18:19:36.370 1c8a Reusing MANIFEST /home/aethan/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_www.birminghammail.co.uk_0.indexeddb.leveldb/MANIFEST-000001
+2020/07/29-18:21:21.367 ea1 Level-0 table #5: started
+2020/07/29-18:21:21.369 ea1 Level-0 table #5: 3186 bytes OK
+2020/07/29-18:21:21.372 ea1 Delete type=0 #3
+2020/07/29-18:21:21.372 ea1 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

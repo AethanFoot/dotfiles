@@ -1,0 +1,162 @@
+alias sudo='sudo '
+zsudo() {sudo zsh -c "$functions[$1]" "$@"}
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+alias -g ......='../../../../..'
+alias cp='cp -i'                                                # Confirm before overwriting something
+alias df='df -h'                                                # Human-readable sizes
+alias free='free -m'                                            # Show sizes in MB
+alias gitu='git add . && git commit && git push'
+alias grep='grep --color=always'
+alias egrep='grep --color=always'
+alias mv='mv -i'
+alias rm='rm -i'
+
+alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias fmirrors='sudo pacman-mirrors --fasttrack && sudo pacman -Syyu'
+alias clean='yay -c'
+alias update='yay && flatpak update'
+alias refresh='clear && . ~/.zshrc'
+alias new='setsid -f'
+alias fzf='fzf -0 -1'
+alias fd='fd -H'
+fdr() {
+    fd $1 /
+}
+extract() {
+	local remove_archive
+	local success
+	local extract_dir
+
+	if (( $# == 0 )); then
+		cat <<-'EOF' >&2
+			Usage: extract [-option] [file ...]
+
+			Options:
+			    -r, --remove    Remove archive after unpacking.
+		EOF
+	fi
+
+	remove_archive=1
+	if [[ "$1" == "-r" ]] || [[ "$1" == "--remove" ]]; then
+		remove_archive=0
+		shift
+	fi
+
+	while (( $# > 0 )); do
+		if [[ ! -f "$1" ]]; then
+			echo "extract: '$1' is not a valid file" >&2
+			shift
+			continue
+		fi
+
+		success=0
+		extract_dir="${1:t:r}"
+		case "${1:l}" in
+			(*.tar.gz|*.tgz) (( $+commands[pigz] )) && { pigz -dc "$1" | tar xv } || tar zxvf "$1" ;;
+			(*.tar.bz2|*.tbz|*.tbz2) tar xvjf "$1" ;;
+			(*.tar.xz|*.txz)
+				tar --xz --help &> /dev/null \
+				&& tar --xz -xvf "$1" \
+				|| xzcat "$1" | tar xvf - ;;
+			(*.tar.zma|*.tlz)
+				tar --lzma --help &> /dev/null \
+				&& tar --lzma -xvf "$1" \
+				|| lzcat "$1" | tar xvf - ;;
+			(*.tar.zst|*.tzst)
+				tar --zstd --help &> /dev/null \
+				&& tar --zstd -xvf "$1" \
+				|| zstdcat "$1" | tar xvf - ;;
+			(*.tar) tar xvf "$1" ;;
+			(*.tar.lz) (( $+commands[lzip] )) && tar xvf "$1" ;;
+			(*.tar.lz4) lz4 -c -d "$1" | tar xvf - ;;
+			(*.tar.lrz) (( $+commands[lrzuntar] )) && lrzuntar "$1" ;;
+			(*.gz) (( $+commands[pigz] )) && pigz -dk "$1" || gunzip -k "$1" ;;
+			(*.bz2) bunzip2 "$1" ;;
+			(*.xz) unxz "$1" ;;
+			(*.lrz) (( $+commands[lrunzip] )) && lrunzip "$1" ;;
+			(*.lz4) lz4 -d "$1" ;;
+			(*.lzma) unlzma "$1" ;;
+			(*.z) uncompress "$1" ;;
+			(*.zip|*.war|*.jar|*.sublime-package|*.ipa|*.ipsw|*.xpi|*.apk|*.aar|*.whl) unzip "$1" -d $extract_dir ;;
+			(*.rar) unrar x -ad "$1" ;;
+			(*.rpm) mkdir "$extract_dir" && cd "$extract_dir" && rpm2cpio "../$1" | cpio --quiet -id && cd .. ;;
+			(*.7z) 7za x "$1" ;;
+			(*.deb)
+				mkdir -p "$extract_dir/control"
+				mkdir -p "$extract_dir/data"
+				cd "$extract_dir"; ar vx "../${1}" > /dev/null
+				cd control; tar xzvf ../control.tar.gz
+				cd ../data; extract ../data.tar.*
+				cd ..; rm *.tar.* debian-binary
+				cd ..
+			;;
+			(*.zst) unzstd "$1" ;;
+			(*)
+				echo "extract: '$1' cannot be extracted" >&2
+				success=1
+			;;
+		esac
+
+		(( success = $success > 0 ? $success : $? ))
+		(( $success == 0 )) && (( $remove_archive == 0 )) && rm "$1"
+		shift
+	done
+}
+alias x=extract
+
+alias yain='yay -S'
+alias yains='yay -U'
+alias yare='yay -R'
+alias yarem='yay -Rns'
+alias pacin='sudo pacman -S'
+alias pacins='sudo pacman -U'
+alias pacre='sudo pacman -R'
+alias pacrem='sudo pacman -Rns'
+
+alias ls='exa -al --color=always --group-directories-first' # preferred listing
+alias la='exa -a --color=always --group-directories-first'  # all files & dirs
+alias ll='exa -l --color=always --group-directories-first'  # long format
+alias lt='exa -aT --color=always --group-directories-first' # tree listing
+
+alias vim='nvim'
+alias svim='sudo -E nvim'
+fvim() {
+    if [[ ! $2 ]]; then
+        [[ "$(read -s -k 2 'REPLY?You did not enter a directory. Proceed in current directory [y/N]: '; echo $REPLY)" != [Nn]* ]] || return 1
+    fi
+    if [[ $(fd $1 $2) ]]; then
+        FILE=$(fd $1 $2 | fzf) 
+        [[ $FILE ]] || return 1
+    else
+        echo $1 'is not a file in' $2
+        return 1
+    fi
+
+    if [[ $(stat -c '%U' $FILE) == 'root' ]]; then
+        printf 'You need root access for this file. Proceed [y/N]: '
+        if read -q; then
+            echo; svim $FILE;
+        fi
+    else
+        vim $FILE
+    fi
+}
+fhvim() {
+    fvim $1 ~/
+}
+frvim() {
+    fvim $1 /
+}
+
+alias traceroute='mtr -t'
+alias btop='bpytop'
+alias tp='trash-put'
+
+alias weather='curl wttr.in'
+alias myip='curl ifconfig.co'
+alias parrot='curl parrot.live'
+alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
+alias colourtest='curl -fsSL https://raw.githubusercontent.com/robertknight/konsole/master/tests/color-spaces.pl | perl'
+alias matrix='unimatrix -c magenta'

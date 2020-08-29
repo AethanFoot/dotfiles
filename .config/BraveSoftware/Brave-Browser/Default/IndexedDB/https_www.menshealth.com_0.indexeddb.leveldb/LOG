@@ -1,0 +1,5 @@
+2020/07/31-12:57:48.236 a2b Reusing MANIFEST /home/aethan/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_www.menshealth.com_0.indexeddb.leveldb/MANIFEST-000001
+2020/07/31-12:59:23.988 99e Level-0 table #5: started
+2020/07/31-12:59:23.993 99e Level-0 table #5: 1749 bytes OK
+2020/07/31-12:59:23.996 99e Delete type=0 #3
+2020/07/31-12:59:23.996 99e Manual compaction at level-0 from (begin) .. (end); will stop at (end)

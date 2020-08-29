@@ -1,0 +1,15 @@
+2020/08/27-19:49:14.821 326d9 Reusing MANIFEST /home/aethan/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_www.reddit.com_0.indexeddb.leveldb/MANIFEST-000001
+2020/08/27-19:49:14.821 326d9 Recovering log #99
+2020/08/27-19:49:14.821 326d9 Reusing old log /home/aethan/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_www.reddit.com_0.indexeddb.leveldb/000099.log 
+2020/08/27-19:50:19.119 77da Level-0 table #104: started
+2020/08/27-19:50:19.125 77da Level-0 table #104: 1380 bytes OK
+2020/08/27-19:50:19.134 77da Delete type=0 #99
+2020/08/27-19:50:19.135 77da Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2020/08/27-19:50:19.135 77da Manual compaction at level-1 from (begin) .. (end); will stop at '\x00\x01\x01\x02\x01\x15\x00v\x002\x00_\x00e\x00v\x00e\x00n\x00t\x00_\x00b\x00o\x00i\x00l\x00e\x00r\x00_\x00p\x00l\x00a\x00t\x00e' @ 359 : 1
+2020/08/27-19:50:19.135 77da Compacting 1@1 + 1@2 files
+2020/08/27-19:50:19.141 77da Generated table #105@1: 20 keys, 1324 bytes
+2020/08/27-19:50:19.141 77da Compacted 1@1 + 1@2 files => 1324 bytes
+2020/08/27-19:50:19.150 77da compacted to: files[ 0 0 1 0 0 0 0 ]
+2020/08/27-19:50:19.150 77da Delete type=2 #104
+2020/08/27-19:50:19.150 77da Delete type=2 #101
+2020/08/27-19:50:19.151 77da Manual compaction at level-1 from '\x00\x01\x01\x02\x01\x15\x00v\x002\x00_\x00e\x00v\x00e\x00n\x00t\x00_\x00b\x00o\x00i\x00l\x00e\x00r\x00_\x00p\x00l\x00a\x00t\x00e' @ 359 : 1 .. (end); will stop at (end)
