@@ -1,5 +1,4 @@
 " A customized init.vim for neovim (https://neovim.io/)     
-
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -7,34 +6,35 @@ filetype off                  " required
 " => Vim Plug For Managing Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-call plug#begin('~/.vim/plugged')		" required, all plugins must appear after this line.
+call plug#begin('~/.config/nvim/plugged')		" required, all plugins must appear after this line.
 "{{ The Basics }}
     Plug 'itchyny/lightline.vim'                         " Lightline statusbar
     Plug 'frazrepo/vim-rainbow'
+    Plug 'jiangmiao/auto-pairs'
 "{{ File management }}
-    Plug 'francoiscabrol/ranger.vim'                   " Ranger in vim
     Plug 'scrooloose/nerdtree'                         " Nerdtree
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'     " Highlighting Nerdtree
     Plug 'ryanoasis/vim-devicons'                      " Icons for Nerdtree
-    Plug 'tsony-tsonev/nerdtree-git-plugin'
-    Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
+    " Plug 'tsony-tsonev/nerdtree-git-plugin'
 "{{ Tim Pope Plugins }}
     Plug 'tpope/vim-surround'                          " Change surrounding marks
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-endwise'
 "{{ Syntax Highlighting and Colors }}
     Plug 'sheerun/vim-polyglot'
-"{{ Snippets }}
+"{{ Shougo Plugins }}
     Plug 'Shougo/neosnippet.vim'
     Plug 'Shougo/neosnippet-snippets'
+    Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'Shougo/deoplete-clangx'
+    Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+    Plug 'Shougo/deoppet.nvim', { 'do': ':UpdateRemotePlugins' }
 "{{ Junegunn Choi Plugins }}
     Plug 'junegunn/goyo.vim'                           " Distraction-free viewing
     Plug 'junegunn/limelight.vim'                      " Hyperfocus on a range
     Plug 'junegunn/vim-emoji'                          " Vim needs emojis!
-"{{ Auto Complete }}
-    Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 "{{ Theme }}
     Plug 'dracula/vim', { 'as': 'dracula' }
 
@@ -43,12 +43,6 @@ call plug#end()		" required, all plugins must appear before this line.
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 " filetype plugin on
-
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General Settings
@@ -78,10 +72,9 @@ set nowrap
 set smartcase
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Remap Keys
+" => Deoplete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Remap ESC to ii
-:imap ii <Esc>
+let g:deoplete#enable_at_startup = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NeoSnippet
@@ -229,60 +222,6 @@ endfunction
 call s:profile(s:denite_options)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Neoclide
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"   <leader>dd    - Jump to definition of current symbol
-"   <leader>dr    - Jump to references of current symbol
-"   <leader>dj    - Jump to implementation of current symbol
-"   <leader>ds    - Fuzzy search current project symbols
-nmap <silent> <leader>dd <Plug>(coc-definition)
-nmap <silent> <leader>dr <Plug>(coc-references)
-nmap <silent> <leader>dj <Plug>(coc-implementation)
-nnoremap <silent> <leader>ds :<C-u>CocList -I -N --top symbols<CR>
-
-" use <tab> for trigger completion and navigate to next complete item
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-
-"Close preview window when completion is done.
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-
-" prettier command for coc
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
-" From Coc Readme
-set updatetime=50
-
-" don't give |ins-completion-menu| messages.
-set shortmess+=c
-
-" always show signcolumns
-set signcolumn=yes
-
-"coc config
-let g:coc_global_extensions = [
-    \ 'coc-snippets',
-    \ 'coc-pairs',
-    \ 'coc-tsserver',
-    \ 'coc-eslint',
-    \ 'coc-prettier',
-    \ 'coc-json',
-    \ 'coc-clangd',
-    \ 'coc-flutter',
-    \ 'coc-html',
-    \ 'coc-java',
-    \ 'coc-python',
-    \ 'coc-css',
-    \ ]
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Status Line
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " The lightline.vim theme
@@ -325,49 +264,6 @@ let g:NERDTreeGitStatusNodeColorization=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:dracula_colorterm=0
 colorscheme dracula
-" highlight LineNr           ctermfg=8    ctermbg=none    cterm=none
-" highlight CursorLineNr     ctermfg=7    ctermbg=8       cterm=none
-" highlight VertSplit        ctermfg=0    ctermbg=8       cterm=none
-" highlight Statement        ctermfg=2    ctermbg=none    cterm=none
-" highlight Directory        ctermfg=4    ctermbg=none    cterm=none
-" highlight StatusLine       ctermfg=7    ctermbg=8       cterm=none
-" highlight StatusLineNC     ctermfg=7    ctermbg=8       cterm=none
-" highlight NERDTreeClosable ctermfg=2
-" highlight NERDTreeOpenable ctermfg=8
-" highlight Comment          ctermfg=4    ctermbg=none    cterm=none
-" highlight Constant         ctermfg=12   ctermbg=none    cterm=none
-" highlight Special          ctermfg=4    ctermbg=none    cterm=none
-" highlight Identifier       ctermfg=6    ctermbg=none    cterm=none
-" highlight PreProc          ctermfg=5    ctermbg=none    cterm=none
-" highlight String           ctermfg=12   ctermbg=none    cterm=none
-" highlight Number           ctermfg=1    ctermbg=none    cterm=none
-" highlight Function         ctermfg=1    ctermbg=none    cterm=none
-" highlight WildMenu         ctermfg=0       ctermbg=80      cterm=none
-" highlight Folded           ctermfg=103     ctermbg=234     cterm=none
-" highlight FoldColumn       ctermfg=103     ctermbg=234     cterm=none
-" highlight DiffAdd          ctermfg=none    ctermbg=23      cterm=none
-" highlight DiffChange       ctermfg=none    ctermbg=56      cterm=none
-" highlight DiffDelete       ctermfg=168     ctermbg=96      cterm=none
-" highlight DiffText         ctermfg=0       ctermbg=80      cterm=none
-" highlight SignColumn       ctermfg=244     ctermbg=235     cterm=none
-" highlight Conceal          ctermfg=251     ctermbg=none    cterm=none
-" highlight SpellBad         ctermfg=168     ctermbg=none    cterm=underline
-" highlight SpellCap         ctermfg=80      ctermbg=none    cterm=underline
-" highlight SpellRare        ctermfg=121     ctermbg=none    cterm=underline
-" highlight SpellLocal       ctermfg=186     ctermbg=none    cterm=underline
-" highlight Pmenu            ctermfg=251     ctermbg=234     cterm=none
-" highlight PmenuSel         ctermfg=0       ctermbg=111     cterm=none
-" highlight PmenuSbar        ctermfg=206     ctermbg=235     cterm=none
-" highlight PmenuThumb       ctermfg=235     ctermbg=206     cterm=none
-" highlight TabLine          ctermfg=244     ctermbg=234     cterm=none
-" highlight TablineSel       ctermfg=0       ctermbg=247     cterm=none
-" highlight TablineFill      ctermfg=244     ctermbg=234     cterm=none
-" highlight CursorColumn     ctermfg=none    ctermbg=236     cterm=none
-" highlight CursorLine       ctermfg=none    ctermbg=236     cterm=none
-" highlight ColorColumn      ctermfg=none    ctermbg=236     cterm=none
-" highlight Cursor           ctermfg=0       ctermbg=5       cterm=none
-" highlight htmlEndTag       ctermfg=114     ctermbg=none    cterm=none
-" highlight xmlEndTag        ctermfg=114     ctermbg=none    cterm=none
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mouse Scrolling
@@ -410,4 +306,3 @@ set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
-

@@ -1,32 +1,9 @@
-!init.vim
-CustomDefault
-/home/aethan/.cache/typescript/3.8/node_modules/lodash/_customDefaultsAssignIn.js
-!how to change default editor
-sysinit.vim
-!sysinit.vim
-!what is the weather today
-web: rofi
-?arch
-!Arch
-!Arch
-/home/aethan/.themes/Ant-Dracula/gtk-3.0/widgets/search-bar.css
-!arch
-!how to install arch
-!how to install arch
-!how to install arch
-!ace
-?what is an ace
- ??
-.confg/rofi
-/usr
-/
-\
-\rofi
-\init.vim
-\init.vim
 ?init.vim
-!kitty
-:hist
+~/.config/nvim/init.vim
+! hi
+~/anaconda3/pkgs/nbconvert-5.6.1-py37_1/lib/python3.7/site-packages/nbconvert/preprocessors/tests/files/Check
+?init.vim
+~/.config/nvim/init.vim
 ?init.vim
 ?init.vim
 ?init.vim
@@ -34,99 +11,5 @@ web: rofi
 ?init.vim
 ?init.vim
 ?init.vim
-?code
-?code
-?code
-?init.vim
-!how to arch
-?How to install arch
-/home/aethan/.local/share/Trash/files/.zplug/doc/guide/How-to-make-zsh-plugins.md ??
-	:web how to install gentoo
-!init.vim
-!kd d
-!halflife 3
-!halflife 3
-!halflife 3
-!halflife 3
-!cqw e
-: xdg hom
-?init.vim
-!init.vim
 ?init.vim
 ?init.vim
-!init.vim
-?init.vim
-!init.vim
-!init.vim
-!init.vim
-!halflife 3
-!vim
-?init.vim
-!init.vim
-?vim
-!vim
-!init.vim
-!init.vim
-!init.vim
-!init.vim
-!init.vim
-!init.vim
-!init.vim
-?hi s
-!init.vim
-?init.vim
-!vim
-?vim
-!vim
-!vim
-!vim
-!vim
-!vim
-?vim
-	:webbro how to install wine in windowsxp
-A Rofi with file and web searching functionality
-[fd error]: Search path 'Rofi' is not a directory.
-!vim
-!vim
-!vim
-!vim
-!vim
-!vim
-!vim
-?vim
-?vim
-?vim
-?vim
-?vim
-?vim
-?vim
-?vim
-?init.vim
-?init.vim
-?init.vim
-?init.vim
-?init.vim
-?init.vim
-?init.vim
-?init.vim#
-?init.vim
-?init.vim
-?init.vim
-?init.vim
-?erf rvf
-?init.vim
-?init.vim
-?init.vim
-?init.vim
-?init.vim
-?init.vim
-?init.vim
-?cwefwdef
-!halflife
-?init.vim
-?init.vim
-?init.vim
-?init.vim
-?init.vim
-?init.vim
-Code

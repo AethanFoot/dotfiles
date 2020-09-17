@@ -1,0 +1,11 @@
+export QT_QPA_PLATFORMTHEME="qt5ct"
+export STEAM_FRAME_FORCE_CLOSE=1
+export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
+export EDITOR='nvim'
+export VISUAL='code'
+export BROWSER='brave'
+export TERMINAL='kitty'
+export COLORTERM='truecolor'
+export __GL_THREADED_OPTIMIZATION=1
+export __GL_SHADER_DISK_CACHE=1
+export __GL_SHADER_DISK_CACHE_PATH=/home/aethan/.cache/shader-cache

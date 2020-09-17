@@ -1,4 +1,4 @@
-neofetch
+colorscript -r
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -25,39 +25,19 @@ SAVEHIST=10000
 setopt auto_pushd
 setopt autocd
 setopt extended_glob                                            # Extended globbing. Allows using regular expressions with *
-setopt nocaseglob
-setopt rcexpandparam                                            # Array expension with parameters
 setopt nocheckjobs                                              # Don't warn about running processes when exiting
 setopt nobeep                                                   # No beep
 setopt append_history                                           # Immediately append history instead of overwriting
-setopt extended_history
 setopt share_history
-setopt hist_expire_dups_first
 setopt hist_find_no_dups
-setopt hist_ignore_dups
 setopt hist_ignore_all_dups                                     # If a new command is a duplicate, remove the older one
 setopt hist_reduce_blanks
 setopt hist_save_no_dups
-setopt pushd_ignore_dups
-setopt pushd_minus
-
-export EDITOR='nvim'
-export VISUAL='code'
-export BROWSER='brave'
-export TERMINAL='kitty'
-export COLORTERM='truecolor'
-export __GL_THREADED_OPTIMIZATION=1
-export __GL_SHADER_DISK_CACHE=1
-export __GL_SHADER_DISK_CACHE_PATH=/home/aethan/.cache/shader-cache
-
-autoload -Uz compinit
-compinit
 
 WORDCHARS=${WORDCHARS//\/[&.;]}                                                            # Don't consider certain characters part of the word
 
 # Basic auto/tab complete
 zmodload zsh/complist
-kitty + complete setup zsh | source /dev/stdin
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}' 'r:|=*' 'l:|=* r:|=*'        # Case insensitive tab completion
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"                                    # Colored completion (different colors for dirs/files/etc)
@@ -80,8 +60,6 @@ zstyle ':completion:*:*:*:users' ignored-patterns \
         rpc rpcuser rpm rtkit scard shutdown squid sshd statd svn sync tftp \
         usbmux uucp vcsa wwwrun xfs '_*'
 zstyle '*' single-ignored show
-
-autoload -U +X bashcompinit && bashcompinit
 
 ## Keybindings ##
 bindkey -v
@@ -132,9 +110,6 @@ bindkey '^[[Z' undo                                             # Shift+tab undo
 autoload -U colors zcalc
 colors
 
-# enable substitution for prompt
-setopt prompt_subst
-
 # Color man pages
 export LESS_TERMCAP_mb=$'\E[01;32m'
 export LESS_TERMCAP_md=$'\E[01;32m'
@@ -165,8 +140,6 @@ unset __conda_setup
 
 ## Plugins ##
 source ~/.config/zsh/zinit/bin/zinit.zsh
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
 
 zinit ice wait"0b" lucid atload"zmodload zsh/terminfo; \
 bindkey '$terminfo[kcuu1]' history-substring-search-up; \
@@ -174,9 +147,6 @@ bindkey '$terminfo[kcud1]' history-substring-search-down; \
 bindkey '^[[A' history-substring-search-up; \
 bindkey '^[[B' history-substring-search-down"
 zinit light zsh-users/zsh-history-substring-search
-
-zinit ice wait"0b" lucid pick"init.sh" atload"export ENHANCD_DISABLE_HOME=1" blockf nocompletions
-zinit light b4b4r07/enhancd
 
 zinit wait"0c" lucid light-mode for \
     djui/alias-tips \
