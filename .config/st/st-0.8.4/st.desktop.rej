@@ -1,0 +1,10 @@
+--- st.desktop
++++ st.desktop
+@@ -1,7 +0,0 @@
+-[Desktop Entry]
+-Type=Application
+-Name=st
+-Comment=simple-terminal emulator for X
+-Icon=utilities-terminal
+-Exec=st
+-Categories=System;TerminalEmulator

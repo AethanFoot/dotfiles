@@ -1,0 +1,3 @@
+[submodule ".config/leftwm/themes/dracula_rounded"]
+	path = .config/leftwm/themes/dracula_rounded
+	url = https://github.com/AethanFoot/leftwm-theme-dracula-rounded.git
