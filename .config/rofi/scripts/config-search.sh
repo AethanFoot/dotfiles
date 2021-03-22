@@ -3,16 +3,22 @@
 CONFIG="$HOME/.config"
 
 names=(
+    "alacritty"
     "aliases"
-    "kitty"
+    "doom config"
+    "doom init"
+    "doom packages"
     "nvim"
     "rofi"
     "zsh"
 )
 
 options=(
+    "$CONFIG/alacritty/alacritty.yml"
     "$CONFIG/zsh/zsh_aliases"
-    "$CONFIG/kitty/kitty.conf"
+    "$HOME/.doom.d/config.el"
+    "$HOME/.doom.d/init.el"
+    "$HOME/.doom.d/packages.el"
     "$CONFIG/nvim/init.vim"
     "$CONFIG/rofi/config.rasi"
     "$HOME/.zshrc"
@@ -23,27 +29,36 @@ for name in "${names[@]}"; do echo -en "$name\0icon\x1ftext-plain\n"; done
 openConfig() {
     choice=""
     case "$1" in
-        "aliases" )
+        "alacritty" )
             choice=${options[0]}
             ;;
-        "kitty" )
+        "aliases" )
             choice=${options[1]}
             ;;
-        "nvim" )
+        "doom config" )
             choice=${options[2]}
             ;;
-        "rofi" )
+        "doom init" )
             choice=${options[3]}
             ;;
-        "zsh" )
+        "doom packages" )
             choice=${options[4]}
+            ;;
+        "nvim" )
+            choice=${options[5]}
+            ;;
+        "rofi" )
+            choice=${options[6]}
+            ;;
+        "zsh" )
+            choice=${options[7]}
             ;;
         * )
             exit 0
             ;;
     esac
 
-    coproc kitty nvim "$choice"
+    coproc alacritty -e nvim "$choice"
     kill -9 "$(pgrep rofi)"
 }
 

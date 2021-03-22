@@ -4,18 +4,15 @@ configuration {
     display-window:      "Windows";
     display-run:         "Run";
     show-icons:          true;
-    terminal:            "kitty";
     threads:             0;
     matching:            "fuzzy";
     disable-history:     false;
 }
 
-/*Dracula theme based on the Purple official rofi theme*/
-
 * {
     font: "SauceCodePro NF Medium 14";
     foreground:                 #f8f8f2;
-    background-color:           #282a36cc;
+    background-color:           #282a36b3;
     selected-foreground:        #bd93f9;
     selected-background:        #b2b2b250;
     separatorcolor:             #ff79c6;
@@ -58,7 +55,7 @@ configuration {
     background-color: @transparent;
     border:        0; 
     border-radius: 8;
-    padding:       20px ;
+    padding:       20px;
     children: [element-icon, element-text];
 }
 #element-text { 
@@ -123,6 +120,7 @@ configuration {
     spacing:    0;
     text-color: @foreground;
     padding:    25px ;
+    children:   [ entry ];
 }
 #case-indicator {
     spacing:    0;
@@ -137,9 +135,6 @@ configuration {
     background-color: @transparent;
     spacing:    0;
     text-color: @separatorcolor;
-}
-#inputbar {
-    children:   [ entry,case-indicator ];
 }
 #textbox-prompt-colon {
     background-color: @transparent;

@@ -120,39 +120,24 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;36m'
 export LESS=-r
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/aethan/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/aethan/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/aethan/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/aethan/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 ## Plugins ##
 source ~/.config/zsh/zinit/bin/zinit.zsh
 
-zinit ice wait"0b" lucid atload"zmodload zsh/terminfo; \
+zinit ice wait"1" lucid atload"zmodload zsh/terminfo; \
 bindkey '$terminfo[kcuu1]' history-substring-search-up; \
 bindkey '$terminfo[kcud1]' history-substring-search-down; \
 bindkey '^[[A' history-substring-search-up; \
 bindkey '^[[B' history-substring-search-down"
 zinit light zsh-users/zsh-history-substring-search
 
-zinit wait"0c" lucid light-mode for \
+zinit wait"1" lucid light-mode for \
     djui/alias-tips \
     hlissner/zsh-autopair
 
-zinit wait"0a" lucid light-mode for \
+zinit wait lucid light-mode for \
  atinit"ZINIT[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay" \
     zdharma/fast-syntax-highlighting \
  atload"_zsh_autosuggest_start" \

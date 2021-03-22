@@ -1,3 +1,4 @@
+#!/bin/bash
 alias sudo='sudo '
 zsudo() {sudo zsh -c "$functions[$1]" "$@"}
 alias -g ...='../..'
@@ -14,9 +15,11 @@ alias mv='mv -i'
 alias rm='rm -i'
 
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias xanup='env _microarchitecture=35 _localmodcfg=y use_numa=n use_tracers=n makepkg -sfCi --noconfirm'
 alias fmirrors='sudo pacman-mirrors --fasttrack && sudo pacman -Syyu'
-alias clean='yay -c'
-alias update='yay'
+alias clean='paru -c'
+alias up='paru'
+alias update-grub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias refresh='clear && . ~/.zshrc'
 alias new='setsid -f'
 alias fzf='fzf -0 -1'
@@ -106,10 +109,10 @@ extract() {
 }
 alias x=extract
 
-alias yain='yay -S'
-alias yains='yay -U'
-alias yare='yay -R'
-alias yarem='yay -Rns'
+alias parin='paru'
+alias parins='paru -U'
+alias parre='paru -R'
+alias parrem='paru -Rns'
 alias pacin='sudo pacman -S'
 alias pacins='sudo pacman -U'
 alias pacre='sudo pacman -R'
@@ -150,7 +153,6 @@ frvim() {
     fvim $1 /
 }
 
-alias traceroute='mtr -t'
 alias btop='bpytop'
 alias tp='trash-put'
 
@@ -160,48 +162,3 @@ alias parrot='curl parrot.live'
 alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
 alias colourtest='curl -fsSL https://raw.githubusercontent.com/robertknight/konsole/master/tests/color-spaces.pl | perl'
 alias matrix='unimatrix -c magenta'
-
-_z_cd() {
-    cd "$@" || return "$?"
-
-    if [ "$_ZO_ECHO" = "1" ]; then
-        echo "$PWD"
-    fi
-}
-
-z() {
-    if [ "$#" -eq 0 ]; then
-        _z_cd ~
-    elif [ "$#" -eq 1 ] && [ "$1" = '-' ]; then
-        if [ -n "$OLDPWD" ]; then
-            _z_cd "$OLDPWD"
-        else
-            echo 'zoxide: $OLDPWD is not set'
-            return 1
-        fi
-    else
-        _zoxide_result="$(zoxide query -- "$@")" && _z_cd "$_zoxide_result"
-    fi
-}
-
-zf() {
-    _zoxide_result="$(zoxide query -i -- "$@")" && _z_cd "$_zoxide_result"
-}
-
-
-alias za='zoxide add'
-
-alias zq='zoxide query'
-alias zqi='zoxide query -i'
-
-alias zr='zoxide remove'
-zri() {
-    _zoxide_result="$(zoxide query -i -- "$@")" && zoxide remove "$_zoxide_result"
-}
-
-
-_zoxide_hook() {
-    zoxide add "$(pwd -L)"
-}
-
-chpwd_functions=(${chpwd_functions[@]} "_zoxide_hook")

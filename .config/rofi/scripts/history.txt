@@ -13,3 +13,8 @@
 ?init.vim
 ?init.vim
 ?init.vim
+/home/aethan/.config/rofi/scripts/hello
+!nvim
+!conkyrc
+?conkyrc
+/home/aethan/Pictures/Screenshot

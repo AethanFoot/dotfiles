@@ -104,7 +104,7 @@ def fetch_suggestions(search_string):
 
         reply_data = gzip.decompress(urllib.request.urlopen(req).read()).split(b'\n')[1]
         reply_data = json.loads(reply_data)
-        return [ cleanhtml(res[0]).strip() for res in reply_data[0] ]
+        return [cleanhtml(res[0]).strip() for res in reply_data[0]]
     else:   # 'duckduckgo'
         if search_string.startswith('!'):
             bang_search = True
@@ -136,7 +136,7 @@ def fetch_suggestions(search_string):
         req = urllib.request.Request(url, headers=headers, method='GET')
         reply_data = gzip.decompress(urllib.request.urlopen(req).read()).decode('utf8')
         reply_data = json.loads(re.match(r'autocompleteCallback\((.*)\);', reply_data).group(1))
-        return [ cleanhtml(res['phrase']).strip() for res in reply_data ]
+        return [cleanhtml(res['phrase']).strip() for res in reply_data]
 
 def main():
     search_string = html.unescape((' '.join(sys.argv[1:])).strip())

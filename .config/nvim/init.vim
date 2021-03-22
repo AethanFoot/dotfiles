@@ -55,7 +55,7 @@ set nobackup                    " No auto backups
 set noswapfile                  " No swap
 set noerrorbells
 set noshowmatch
-set number relativenumber       " Display line numbers
+set number                      " Display line numbers
 set termguicolors
 set clipboard+=unnamedplus      " Copy/paste between vim and other programs.
 syntax enable
@@ -306,3 +306,5 @@ set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
+
+autocmd VimEnter * :silent exec "!kill -s SIGWINCH $PPID"

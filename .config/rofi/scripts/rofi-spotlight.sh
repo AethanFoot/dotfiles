@@ -1,9 +1,9 @@
 #!/bin/bash
 # User settings
 OPENER=xdg-open
-TERM_EMU=kitty
+TERM_EMU=alacritty
 TEXT_EDITOR=nvim
-FILE_MANAGER=nautilus
+FILE_MANAGER=pcmanfm
 BLUETOOTH_SEND=blueman-sendto
 SHOW_HIDDEN=true
 
@@ -57,6 +57,12 @@ declare -a BIN_OPTIONS=(
     "${BIN_NO_X_OPTIONS[@]}"
 )
 declare -a TEXT_OPTIONS=("${SHELL_NO_X_OPTIONS[@]}")
+declare -a HTML_OPTIONS=(
+	"Open"
+	"Edit"
+	"${OPEN_FILE_LOCATION[@]}"
+    "${STANDARD_CONTROLS[@]}"
+)
 declare -a XCF_SVG_OPTIONS=(
 	"Open"
 	"${OPEN_FILE_LOCATION[@]}"
@@ -183,6 +189,9 @@ function icon_file_type(){
 		"text/x-shellscript" )
 			icon_name='application-x-shellscript'
 			;;
+		"text/html" )
+			icon_name='text-html'
+			;;
 		"font/sfnt" | "application/vnd.ms-opentype" )
 			icon_name='application-x-font-ttf'
 			;;
@@ -237,8 +246,9 @@ function navigate_to() {
 	if [ -n "${CUR_DIR}" ]; then
 		CUR_DIR=$(readlink -e "${CUR_DIR}")
 		if [ ! -d "${CUR_DIR}" ] || [ ! -r "${CUR_DIR}" ]; then
-			echo "${HOME}" > "${PREV_LOC_FILE}"
 			create_notification "denied"
+			CUR_DIR=$(realpath ${CUR_DIR} | xargs dirname)
+			echo "${CUR_DIR}" > "${PREV_LOC_FILE}"
 		else
 			echo "${CUR_DIR}" > "${PREV_LOC_FILE}"
 		fi
@@ -333,6 +343,9 @@ function context_menu() {
 
 	elif [[ "${type}" = "text/plain" ]]; then
 		print_context_menu "${TEXT_OPTIONS[@]}"
+
+	elif [[ "${type}" == "text/html" ]]; then
+		print_context_menu "${HTML_OPTIONS[@]}"
 	
 	elif [[ "${type}" = "image/jpeg" ]] || [[ "${type}" = "image/png" ]]; then
 		print_context_menu "${IMAGE_OPTIONS[@]}"
@@ -485,7 +498,7 @@ if [ -n "$*" ] && [[ "${ALL_OPTIONS[*]} " = *"$*"* ]]; then
 			kill -9 "$(pgrep rofi)"
 			;;
 		"Execute in ${TERM_EMU}" )
-			coproc eval "${TERM_EMU} $(cat "${CURRENT_FILE}")" > /dev/null 2>&1
+			coproc eval "${TERM_EMU} -e $(cat "${CURRENT_FILE}")" > /dev/null 2>&1
 			kill -9 "$(pgrep rofi)"
 			;;
 		"Open" )
@@ -494,7 +507,7 @@ if [ -n "$*" ] && [[ "${ALL_OPTIONS[*]} " = *"$*"* ]]; then
 			;;
 		"Open file location in ${TERM_EMU}" )
 			file_path="$(cat "${CURRENT_FILE}")"
-			coproc ${TERM_EMU} bash -c "cd ""${file_path%/*}"" ; ${SHELL}" > /dev/null 2>&1
+			coproc ${TERM_EMU} -e sleep 0.1; bash -c "cd ""${file_path%/*}"" ; ${SHELL}" > /dev/null 2>&1
 			kill -9 "$(pgrep rofi)"
 			;;
 		"Open file location in ${FILE_MANAGER}" )
@@ -503,7 +516,7 @@ if [ -n "$*" ] && [[ "${ALL_OPTIONS[*]} " = *"$*"* ]]; then
 			kill -9 "$(pgrep rofi)"
 			;;
 		"Edit" )
-			coproc eval "${TERM_EMU} ${TEXT_EDITOR} $(cat "${CURRENT_FILE}")" > /dev/null 2>&1
+			coproc eval "${TERM_EMU} -e sleep 0.1 ; ${TEXT_EDITOR} $(cat "${CURRENT_FILE}")" > /dev/null 2>&1
 			kill -9 "$(pgrep rofi)"
 			;;
 		"Move to trash" )
