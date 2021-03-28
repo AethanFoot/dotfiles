@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=st
-GenericName=Terminal emulator
-Comment=simple-terminal emulator for X
-Icon=utilities-terminal
-TryExec=st
-Exec=st
-Categories=System;TerminalEmulator;
