@@ -8,10 +8,10 @@
 static char *font = "SauceCodePro Nerd Font:pixelsize=15:antialias=true:autohint=true";
 /* Spare fonts */
 static char *font2[] = {
-	"Joypixels:pixelsize=12:antialias=true:autohint=true",
+	"Joypixels:pixelsize=14:antialias=true:autohint=true",
 };
 
-static int borderpx = 2;
+static int borderpx = 8;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -63,7 +63,7 @@ static double maxlatency = 33;
 
 /* frames per second st should at maximum draw to the screen */
 unsigned int xfps = 144;
-unsigned int actionfps = 30;
+unsigned int actionfps = 144;
 
 /*
  * blinking timeout (set to 0 to disable blinking) for the terminal blinking
@@ -109,7 +109,7 @@ float alpha = 0.8;
 static const char *colorname[] = {
 
   /* 8 normal colors */
-  [0] = "#21222c", /* black   */
+  [0] = "#282a36", /* black   */
   [1] = "#ff5555", /* red     */
   [2] = "#50fa7b", /* green   */
   [3] = "#f1fa8c", /* yellow  */

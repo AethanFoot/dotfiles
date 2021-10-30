@@ -1,8 +1,0 @@
- 
-New instance of bashtop version: 0.9.24 Pid: 16660
-/home/aethan/anaconda3/lib/python3.7/site-packages/psutil/_pslinux.py:1227: RuntimeWarning: ignoring FileNotFoundError(2, 'No such file or directory') for file '/sys/class/hwmon/hwmon2/temp1_input'
-  RuntimeWarning)
-/home/aethan/anaconda3/lib/python3.7/site-packages/psutil/_pslinux.py:1227: RuntimeWarning: ignoring FileNotFoundError(2, 'No such file or directory') for file '/sys/class/hwmon/hwmon2/temp2_input'
-  RuntimeWarning)
-PSUTIL ERROR! Command: get_disks(exclude='squashfs')
-not sure how to interpret line '   8       0 sda 39777 8790 17646158 60446 14708 12829 24384568 99562 0 57387 160276 0 0 0 0 220 267\n'

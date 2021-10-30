@@ -1,4 +1,4 @@
-" A customized init.vim for neovim (https://neovim.io/)     
+" A customized init.vim for neovim (https://neovim.io/)
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -11,30 +11,32 @@ call plug#begin('~/.config/nvim/plugged')		" required, all plugins must appear a
     Plug 'itchyny/lightline.vim'                         " Lightline statusbar
     Plug 'frazrepo/vim-rainbow'
     Plug 'jiangmiao/auto-pairs'
+    Plug 'ntpeters/vim-better-whitespace'
+    Plug 'Yggdroot/indentLine'
 "{{ File management }}
     Plug 'scrooloose/nerdtree'                         " Nerdtree
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'     " Highlighting Nerdtree
     Plug 'ryanoasis/vim-devicons'                      " Icons for Nerdtree
     " Plug 'tsony-tsonev/nerdtree-git-plugin'
-"{{ Tim Pope Plugins }}
-    Plug 'tpope/vim-surround'                          " Change surrounding marks
-    Plug 'tpope/vim-commentary'
-    Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-endwise'
-"{{ Syntax Highlighting and Colors }}
-    Plug 'sheerun/vim-polyglot'
+"{{ Syntactic }}
+    Plug 'cespare/vim-toml'
+    Plug 'stephpy/vim-yaml'
+    Plug 'rust-lang/rust.vim'
+    Plug 'lervag/vimtex'
+"{{ Neoclide }}
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "{{ Shougo Plugins }}
-    Plug 'Shougo/neosnippet.vim'
-    Plug 'Shougo/neosnippet-snippets'
     Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'Shougo/deoplete-clangx'
-    Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
-    Plug 'Shougo/deoppet.nvim', { 'do': ':UpdateRemotePlugins' }
 "{{ Junegunn Choi Plugins }}
     Plug 'junegunn/goyo.vim'                           " Distraction-free viewing
     Plug 'junegunn/limelight.vim'                      " Hyperfocus on a range
     Plug 'junegunn/vim-emoji'                          " Vim needs emojis!
+    Plug 'junegunn/fzf'
+"{{ Tim Pope Plugins }}
+    Plug 'tpope/vim-surround'                          " Change surrounding marks
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-endwise'
+    Plug 'tpope/vim-commentary'
 "{{ Theme }}
     Plug 'dracula/vim', { 'as': 'dracula' }
 
@@ -50,14 +52,25 @@ filetype plugin indent on    " required
 set path+=**					" Searches current directory recursively.
 set wildmenu					" Display all matches when tab complete.
 set incsearch                   " Incremental search
+set ignorecase
+set smartcase
+set gdefault
 set hidden                      " Needed to keep multiple buffers open
 set nobackup                    " No auto backups
 set noswapfile                  " No swap
 set noerrorbells
 set noshowmatch
 set number                      " Display line numbers
+set relativenumber
+set signcolumn=yes
+set cmdheight=2
+set updatetime=300
+set ttimeoutlen=50
+set shortmess+=c
 set termguicolors
 set clipboard+=unnamedplus      " Copy/paste between vim and other programs.
+set undodir=~/.cache/.vimdid
+set undofile
 syntax enable
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -68,27 +81,118 @@ set smarttab                    " Be smart using tabs ;)
 set shiftwidth=4                " One tab == four spaces.
 set tabstop=4 softtabstop=4     " One tab == four spaces.
 set smartindent
-set nowrap
 set smartcase
+autocmd FileType * set nowrap | set colorcolumn=100
+autocmd FileType tex set wrap | set linebreak | set breakindent | set colorcolumn=0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Deoplete
+" => Editing
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:deoplete#enable_at_startup = 1
+let g:indentLine_setColors = 0
+let g:indentLine_color_term = 6
+" <leader>y - Automatically remove trailing whitespace
+nmap <leader>y :StripWhitespace<CR>
+" Quick-save
+nmap <leader>w :w<CR>
+nnoremap <CR> :noh<CR><CR>
+" rust
+let g:rustfmt_autosave = 1
+let g:rustfmt_emit_files = 1
+let g:rustfmt_fail_silently = 0
+let g:rust_clip_command = 'xclip -selection clipboard'
+" Goyo
+let g:goyo_width = 120
+let g:goyo_height = 200
+
+function! s:goyo_enter()
+  let b:quitting = 0
+  let b:quitting_bang = 0
+  autocmd QuitPre <buffer> let b:quitting = 1
+  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+endfunction
+
+function! s:goyo_leave()
+  " Quit Vim if this is the only remaining buffer
+  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+    if b:quitting_bang
+      qa!
+    else
+      qa
+    endif
+  endif
+endfunction
+
+autocmd! User GoyoEnter call <SID>goyo_enter()
+autocmd! User GoyoLeave call <SID>goyo_leave()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => NeoSnippet
+" => Neoclide
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Map <C-k> as shortcut to activate snippet if available
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
+" https://github.com/neoclide/coc.nvim#example-vim-configuration
+inoremap <silent><expr> <c-space> coc#refresh()
 
-" Load custom snippets from snippets folder
-let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
 
-" Hide conceal markers
-let g:neosnippet#enable_conceal_markers = 0
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" gd - go to definition of word under cursor
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+
+" gi - go to implementation
+nmap <silent> gi <Plug>(coc-implementation)
+
+" gr - find references
+nmap <silent> gr <Plug>(coc-references)
+
+" gh - get hint on whatever's under the cursor
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> gh :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+nnoremap <silent> <leader>co  :<C-u>CocList outline<cr>
+nnoremap <silent> <leader>cs  :<C-u>CocList -I symbols<cr>
+
+" List errors
+nnoremap <silent> <leader>cl  :<C-u>CocList locationlist<cr>
+
+" list commands available in tsserver (and others)
+nnoremap <silent> <leader>cc  :<C-u>CocList commands<cr>
+
+" restart when tsserver gets wonky
+nnoremap <silent> <leader>cR  :<C-u>CocRestart<CR>
+
+" view all errors
+nnoremap <silent> <leader>cl  :<C-u>CocList locationlist<CR>
+
+" manage extensions
+nnoremap <silent> <leader>cx  :<C-u>CocList extensions<cr>
+
+" rename the current word in the cursor
+nmap <leader>cr  <Plug>(coc-rename)
+nmap <leader>cf  <Plug>(coc-format-selected)
+vmap <leader>cf  <Plug>(coc-format-selected)
+
+" run code actions
+vmap <leader>ca  <Plug>(coc-codeaction-selected)
+nmap <leader>ca  <Plug>(coc-codeaction-selected)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Denite
@@ -229,13 +333,17 @@ let g:lightline = {
     \ 'colorscheme': 'darcula',
     \   'active': {
     \     'left':[ [ 'mode', 'paste' ],
-    \              [ 'gitbranch', 'readonly', 'filename', 'modified' ]
+    \              [ 'cocstatus', 'gitbranch', 'readonly', 'filename', 'modified' ]
     \     ]
     \   },
     \   'component_function': {
+    \     'cocstatus': 'coc#status',
     \     'gitbranch': 'fugitive#head',
     \   }
     \ }
+
+" Use auocmd to force lightline update.
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
 " Always show statusline
 set laststatus=2
@@ -268,7 +376,7 @@ colorscheme dracula
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mouse Scrolling
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set mouse=nicr
+set mouse=a
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Splits and Tabbed Files
@@ -292,14 +400,14 @@ map <Leader>th <C-w>t<C-w>H
 map <Leader>tk <C-w>t<C-w>K
 
 " Removes pipes | that act as seperators on splits
-set fillchars+=vert:\ 
+set fillchars+=vert:\
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Other Stuff
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:python_highlight_all = 1
 
-au! BufRead,BufWrite,BufWritePost,BufNewFile *.org 
+au! BufRead,BufWrite,BufWritePost,BufNewFile *.org
 au BufEnter *.org            call org#SetOrgFileType()
 
 set guioptions-=m  "remove menu bar

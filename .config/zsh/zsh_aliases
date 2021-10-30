@@ -15,7 +15,7 @@ alias mv='mv -i'
 alias rm='rm -i'
 
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
-alias xanup='env _microarchitecture=35 _localmodcfg=y use_numa=n use_tracers=n makepkg -sfCi --noconfirm'
+alias xanup='env _microarchitecture=15 use_numa=n use_tracers=n makepkg -sfCi --noconfirm'
 alias fmirrors='sudo pacman-mirrors --fasttrack && sudo pacman -Syyu'
 alias clean='paru -c'
 alias up='paru'

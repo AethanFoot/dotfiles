@@ -58,7 +58,7 @@ openConfig() {
             ;;
     esac
 
-    coproc alacritty -e nvim "$choice"
+    coproc st -e nvim "$choice"
     kill -9 "$(pgrep rofi)"
 }
 

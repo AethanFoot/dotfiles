@@ -1,8 +1,112 @@
 modkey = "Mod4"
+mousekey = "Control"
+focus_behaviour = "Sloppy"
+layout_mode = "Tag"
+focus_new_windows = true
 workspaces = []
 tags = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
-layouts = ["MainAndVertStack", "Monocle", "Fibonacci", "CenterMain"]
+layouts = ["MainAndVertStack", "Monocle", "MainAndDeck", "Fibonacci", "CenterMain"]
+# layouts = [
+#     "MainAndDeck",
+#     "MainAndVertStack",
+#     "MainAndHorizontalStack",
+#     "GridHorizontal",
+#     "EvenHorizontal",
+#     "EvenVertical",
+#     "Fibonacci",
+#     "CenterMain",
+#     "CenterMainBalanced",
+#     "Monocle",
+#     "RightWiderLeftStack",
+# ]
+# [[keybind]]
+# command = "MoveWindowToNextWorkspace"
+# modifier = ["modkey"]
+# key = "Right"
+
+# [[keybind]]
+# command = "MoveWindowToPreviousWorkspace"
+# modifier = ["modkey"]
+# key = "Left"
+
+# [[keybind]]
+# command = "FocusNextTag"
+# modifier = ["modkey"]
+# key = "Right"
+
+# [[keybind]]
+# command = "FocusPreviousTag"
+# modifier = ["modkey"]
+# key = "Left"
+
+[[scratchpad]]
+name = "bpytop"
+value = "st -e bpytop"
+
+[[keybind]]
+command = "ToggleScratchPad"
+value = "bpytop"
+modifier = ["modkey"]
+key = "o"
+
+[[scratchpad]]
+name = "st"
+value = "st"
+# x = 49
+# y = 20
+# height = 80
+# width = 51
+
+[[keybind]]
+command = "ToggleScratchPad"
+value = "st"
+modifier = ["modkey"]
+key = "p"
+
+[[keybind]]
+command = "SwapTags"
+modifier = ["modkey"]
+key = "q"
+
+[[keybind]]
+command = "ToggleFullScreen"
+modifier = ["modkey"]
+key = "t"
+
+[[keybind]]
+command = "ToggleSticky"
+modifier = ["modkey"]
+key = "v"
+
+[[keybind]]
+command = "SetMarginMultiplier"
+value = "0"
+modifier = ["modkey"]
+key = "m"
+
+[[keybind]]
+command = "SetMarginMultiplier"
+value = "1.0"
+modifier = ["modkey"]
+key = "n"
+
+[[keybind]]
+command ="RotateTag"
+modifier = ["modkey"]
+key = "z"
+
+[[keybind]]
+command = "IncreaseMainWidth"
+value = "5"
+modifier = ["modkey"]
+key = "s"
+
+[[keybind]]
+command = "DecreaseMainWidth"
+value = "5"
+modifier = ["modkey"]
+key = "a"
 
 [[keybind]]
 command = "Execute"
@@ -36,14 +140,8 @@ key = "Return"
 
 [[keybind]]
 command = "Execute"
-value = "alacritty"
-modifier = ["modkey"]
-key = "Return"
-
-[[keybind]]
-command = "Execute"
 value = "st"
-modifier = ["Alt"]
+modifier = ["modkey"]
 key = "Return"
 
 [[keybind]]
@@ -66,6 +164,16 @@ key = "q"
 command = "MoveToLastWorkspace"
 modifier = ["modkey", "Shift"]
 key = "w"
+
+[[keybind]]
+command = "FloatingToTile"
+modifier = ["modkey", "Shift"]
+key = "t"
+
+[[keybind]]
+command = "MoveWindowTop"
+modifier = ["modkey", "Shift"]
+key = "l"
 
 [[keybind]]
 command = "MoveWindowUp"

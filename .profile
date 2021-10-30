@@ -1,6 +1,6 @@
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export STEAM_FRAME_FORCE_CLOSE=1
-export PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin:$HOME/.emacs.d/bin"
+export PATH="$PATH:$HOME/.emacs.d/bin:$HOME/.local/bin"
 
 export XDG_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}
 export XDG_CACHE_HOME=${XDG_CACHE_HOME:="$HOME/.cache"}
@@ -9,7 +9,7 @@ export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
 export BROWSER=/usr/bin/brave
-export TERMINAL=/usr/bin/alacritty
+export TERMINAL=/usr/bin/st
 export COLORTERM=truecolor
 export MANPAGER="nvim -c 'set ft=man' -"
 
