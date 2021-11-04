@@ -125,6 +125,14 @@ endfunction
 autocmd! User GoyoEnter call <SID>goyo_enter()
 autocmd! User GoyoLeave call <SID>goyo_leave()
 
+let g:indentLine_concealcursor = ''
+let g:indentLine_conceallevel = 2
+
+let g:vimtex_view_method = 'mupdf'
+let g:vimtex_view_general_options
+    \ = '-reuse-instance'
+let g:vimtex_view_general_options_latexmk = '-reuse-instance'
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Neoclide
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -376,6 +384,7 @@ colorscheme dracula
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mouse Scrolling
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set mouse=nicr
 set mouse=a
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
