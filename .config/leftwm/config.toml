@@ -4,6 +4,10 @@ focus_behaviour = "Sloppy"
 layout_mode = "Tag"
 focus_new_windows = true
 workspaces = []
+# workspaces = [
+#   { "id"= 1, "height"=1050, "width"=1680, "x"=0, "y"=0 }, ## HDMI-A-0 (4k)
+#   { "id"= 0, "height"=1080, "width"=1920, "x"=1700, "y"=0 }, ## HDMI-A-1 (xppen)
+# ]
 tags = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 layouts = ["MainAndVertStack", "Monocle", "MainAndDeck", "Fibonacci", "CenterMain"]
@@ -20,10 +24,25 @@ layouts = ["MainAndVertStack", "Monocle", "MainAndDeck", "Fibonacci", "CenterMai
 #     "Monocle",
 #     "RightWiderLeftStack",
 # ]
-# [[keybind]]
-# command = "MoveWindowToNextWorkspace"
-# modifier = ["modkey"]
-# key = "Right"
+
+[[window_rules]]
+window_class = "System-config-printer.py"
+spawn_floating = false
+spawn_on_tag = 6
+
+[[window_rules]]
+window_title = "weechat"
+spawn_on_tag = 9
+
+[[keybind]]
+command = "MoveWindowToNextWorkspace"
+modifier = ["modkey"]
+key = "Right"
+
+[[keybind]]
+command = "FocusWorkspaceNext"
+modifier = ["modkey", "Shift"]
+key = "Right"
 
 # [[keybind]]
 # command = "MoveWindowToPreviousWorkspace"
@@ -40,6 +59,24 @@ layouts = ["MainAndVertStack", "Monocle", "MainAndDeck", "Fibonacci", "CenterMai
 # modifier = ["modkey"]
 # key = "Left"
 
+# [[keybind]]
+# command = "FocusWindowTop"
+# value = "true"
+# modifier = ["modkey"]
+# key = "Left"
+
+[[keybind]]
+command = "Execute"
+value = "xprop > /home/aethan/xprop.log"
+modifier = ["modkey"]
+key = "x"
+
+# [[keybind]]
+# command = "Execute"
+# value = "jetbrains-toolbox"
+# modifier = ["modkey"]
+# key = "x"
+
 [[scratchpad]]
 name = "bpytop"
 value = "st -e bpytop"
@@ -53,10 +90,10 @@ key = "o"
 [[scratchpad]]
 name = "st"
 value = "st"
-# x = 49
-# y = 20
-# height = 80
-# width = 51
+# x = 0
+# y = 0
+# height = 0.3
+# width = 1.0
 
 [[keybind]]
 command = "ToggleScratchPad"

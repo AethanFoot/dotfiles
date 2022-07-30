@@ -22,7 +22,8 @@ if [ "$TERM" = "linux" ]; then
 	clear
 fi
 
-source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
+# source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
+eval "$(starship init zsh)"
 
 ZSH_CACHE_DIR=$HOME/.cache/zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
@@ -137,10 +138,13 @@ export LESS_TERMCAP_us=$'\E[01;36m'
 export LESS=-r
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 ## Plugins ##
-source ~/.config/zsh/zinit/bin/zinit.zsh
+declare -A ZINIT
+ZINIT[BIN_DIR]="$HOME/.config/zsh/zinit/bin"
+ZINIT[HOME_DIR]="$HOME/.config/zsh/zinit"
+source $ZINIT[BIN_DIR]/zinit.zsh
 
 zinit ice wait"1" lucid atload"zmodload zsh/terminfo; \
 bindkey '$terminfo[kcuu1]' history-substring-search-up; \
@@ -155,7 +159,7 @@ zinit wait"1" lucid light-mode for \
 
 zinit wait lucid light-mode for \
  atinit"ZINIT[COMPINIT_OPTS]=-C; zpcompinit; zpcdreplay" \
-    zdharma/fast-syntax-highlighting \
+    zdharma-continuum/fast-syntax-highlighting \
  atload"_zsh_autosuggest_start" \
     zsh-users/zsh-autosuggestions \
  blockf \
