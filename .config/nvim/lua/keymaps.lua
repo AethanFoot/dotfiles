@@ -16,6 +16,16 @@ nmap("<leader>y", ":StripWhitespace<CR>")
 nmap("<leader>w", ":w<CR>")
 nnoremap("<CR>", ":noh<CR><CR>")
 
+nnoremap("<leader>in", "<cmd>lua require'illuminate'.next_reference{wrap=true}<cr>")
+nnoremap("<leader>ip", "<cmd>lua require'illuminate'.next_reference{reverse=true,wrap=true}<cr>")
+
+nnoremap("<leader>xx", "<cmd>TroubleToggle<cr>")
+nnoremap("<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>")
+nnoremap("<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>")
+nnoremap("<leader>xq", "<cmd>TroubleToggle quickfix<cr>")
+nnoremap("<leader>xl", "<cmd>TroubleToggle loclist<cr>")
+nnoremap("gR", "<cmd>TroubleToggle lsp_references<cr>")
+
 nnoremap("<C-p>", ":Telescope")
 nnoremap("<leader>ps", function()
 	require("telescope.builtin").grep_string({ search = vim.fn.input("Grep For > ") })

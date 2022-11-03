@@ -11,10 +11,10 @@
 }
 
 #window {
-    background-color: @background;
+    background-color: @background-color;
     border:           0;
     border-radius:    8;
-    border-color:     @background;
+    border-color:     @background-color;
     padding:          0px 0px 0px;
     width:            35%;
 }
@@ -59,15 +59,15 @@
     text-color:       inherit;
 }
 #element.normal.normal {
-    background-color: @background;
+    background-color: @background-color;
     text-color:       @foreground;
 }
 #element.normal.urgent {
-    background-color: @background;
+    background-color: @background-color;
     text-color:       @foreground;
 }
 #element.normal.active {
-    background-color: @background;
+    background-color: @background-color;
     text-color:       @foreground;
 }
 #element.selected.normal {
@@ -83,15 +83,15 @@
     text-color:       @selected-background;
 }
 #element.alternate.normal {
-    background-color: @background;
+    background-color: @background-color;
     text-color:       @foreground;
 }
 #element.alternate.urgent {
-    background-color: @background;
+    background-color: @background-color;
     text-color:       @foreground;
 }
 #element.alternate.active {
-    background-color: @background;
+    background-color: @background-color;
     text-color:       @foreground;
 }
 #scrollbar {

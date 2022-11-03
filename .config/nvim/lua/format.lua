@@ -4,7 +4,7 @@ local util = require("formatter.util")
 -- Provides the Format and FormatWrite commands
 require("formatter").setup({
 	-- Enable or disable logging
-	logging = true,
+	logging = false,
 	-- Set the log level
 	log_level = vim.log.levels.WARN,
 	-- All formatter configurations are opt-in
@@ -18,7 +18,13 @@ require("formatter").setup({
 		},
 
 		rust = {
-			require("formatter.filetypes.rust").rustfmt,
+			function()
+				return {
+					exe = "rustfmt",
+					args = { "--edition 2021" },
+					stdin = true,
+				}
+			end,
 		},
 
 		["*"] = {

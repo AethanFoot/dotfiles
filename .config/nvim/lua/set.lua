@@ -38,10 +38,11 @@ vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
 vim.g.dracula_colorterm = 0
 vim.cmd("colorscheme dracula")
 vim.g.mapleader = "\\"
+vim.g.Illuminate_delay = 100
 
 vim.cmd([[
     augroup FormatAutogroup
         autocmd!
-        autocmd BufWritePost * FormatWrite
+        autocmd BufWritePost * silent FormatWrite
     augroup END
 ]])

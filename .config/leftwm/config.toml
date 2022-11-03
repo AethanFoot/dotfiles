@@ -10,7 +10,13 @@ workspaces = []
 # ]
 tags = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
-layouts = ["MainAndVertStack", "Monocle", "MainAndDeck", "Fibonacci", "CenterMain"]
+layouts = [
+  "MainAndVertStack",
+  "Monocle",
+  "MainAndDeck",
+  "Fibonacci",
+  "CenterMain",
+]
 # layouts = [
 #     "MainAndDeck",
 #     "MainAndVertStack",
@@ -34,15 +40,15 @@ spawn_on_tag = 6
 window_title = "weechat"
 spawn_on_tag = 9
 
-[[keybind]]
-command = "MoveWindowToNextWorkspace"
-modifier = ["modkey"]
-key = "Right"
-
-[[keybind]]
-command = "FocusWorkspaceNext"
-modifier = ["modkey", "Shift"]
-key = "Right"
+# [[keybind]]
+# command = "MoveWindowToNextWorkspace"
+# modifier = ["modkey"]
+# key = "Right"
+#
+# [[keybind]]
+# command = "FocusWorkspaceNext"
+# modifier = ["modkey", "Shift"]
+# key = "Right"
 
 # [[keybind]]
 # command = "MoveWindowToPreviousWorkspace"
@@ -65,11 +71,16 @@ key = "Right"
 # modifier = ["modkey"]
 # key = "Left"
 
-[[keybind]]
-command = "Execute"
-value = "xprop > /home/aethan/xprop.log"
-modifier = ["modkey"]
-key = "x"
+# [[keybind]]
+# command = "MoveWindowToNextTag"
+# modifier = ["modkey"]
+# key = "Left"
+#
+# [[keybind]]
+# command = "Execute"
+# value = "xprop > /home/aethan/xprop.log"
+# modifier = ["modkey"]
+# key = "x"
 
 # [[keybind]]
 # command = "Execute"
@@ -129,7 +140,7 @@ modifier = ["modkey"]
 key = "n"
 
 [[keybind]]
-command ="RotateTag"
+command = "RotateTag"
 modifier = ["modkey"]
 key = "z"
 

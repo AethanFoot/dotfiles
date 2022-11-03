@@ -26,7 +26,9 @@ return require("packer").startup(function(use)
 	})
 
 	-- IDE Functionality --
-	use("Yggdroot/indentLine")
+	use("ron-rs/ron.vim")
+	use("RRethy/vim-illuminate")
+	use("lukas-reineke/indent-blankline.nvim")
 	use("mhartington/formatter.nvim")
 	use("neovim/nvim-lspconfig")
 	use("williamboman/mason.nvim")
@@ -35,8 +37,8 @@ return require("packer").startup(function(use)
 	use("hrsh7th/cmp-buffer")
 	use("hrsh7th/cmp-cmdline")
 	use("hrsh7th/cmp-path")
+	use("hrsh7th/cmp-nvim-lua")
 	use("hrsh7th/nvim-cmp")
-	use("nvim-treesitter/nvim-treesitter")
 	use("onsails/lspkind-nvim")
 	use("glepnir/lspsaga.nvim")
 	use("simrat39/symbols-outline.nvim")
@@ -50,10 +52,19 @@ return require("packer").startup(function(use)
 			require("trouble").setup({})
 		end,
 	})
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		run = ":TSUpdate",
+	})
+	use({
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
+		end,
+	})
 
 	-- Tim Pope --
 	use("tpope/vim-surround")
 	use("tpope/vim-fugitive")
 	use("tpope/vim-endwise")
-	use("tpope/vim-commentary")
 end)
